@@ -7,8 +7,11 @@ I made this website long ago, but never published it online, which is why there 
 
 Versioning command: "npm version [new-version] --git-tag-version false"
 
+update 1.3:
+- Removed `vecel.json`, cause I switched to Render.
+
 update 1.2:
-- Adde vercel setup.
+- Added vercel setup.
 
 update 1.1:
 - Testing git setup.

@@ -6,8 +6,8 @@ import { formStuff, sendChapterContent, sendVerses, sendSubchapterContent } from
 import evalArticlePage from './evalArticlePage';
 import { topics} from './topics';
 
-const hostname = '127.0.0.1';
-const port = 6236;
+const hostname = '0.0.0.0';
+const port = process.env.PORT || 6236;
 
 function readFileAndSendRes(res: ServerResponse<IncomingMessage>, fileName: string, responseType: string, encoding?: BufferEncoding){
   try{
