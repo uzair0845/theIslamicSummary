@@ -1,0 +1,25 @@
+{
+  "name": "the-islamic-summary",
+  "version": "1.0.0",
+  "description": "Personal website for Islamic study notes",
+  "homepage": "https://github.com/uzair0845/the-islamic-summary#readme",
+  "bugs": {
+    "url": "https://github.com/uzair0845/the-islamic-summary/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uzair0845/the-islamic-summary.git"
+  },
+  "license": "ISC",
+  "author": "Uzair Arif",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "start": "npx tsx index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "tsx": "^4.19.4"
+  }
+}

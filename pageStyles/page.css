@@ -1,0 +1,727 @@
+:root{
+	--bottomScrollBgPos: 0px;
+	--maintextTransitionTime: 1s;
+}
+
+html{
+	scroll-behavior: smooth;
+
+	body{
+		background-image: url('/pics/background.png');
+		background-color:#AA0000;
+		background-repeat: repeat;
+		background-position: left top;
+		background-attachment: scroll;
+		background-size: 100% auto;
+		margin:0px;
+		min-height: 100vh;
+		min-width: 1000px;
+		position:relative;
+		box-sizing: border-box;
+		
+		&::-webkit-scrollbar {
+			width: 14px;
+		}
+		&::-webkit-scrollbar-track {
+			background: #220000;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: #770000;
+			cursor: pointer;
+		}
+		&::-webkit-scrollbar-thumb:vertical {
+			border-left: 4px solid #220000;
+		}
+		&::-webkit-scrollbar-thumb:horizontal {
+			border-top: 4px solid #220000;
+		}
+		&::-webkit-scrollbar-thumb:hover{
+			background: #990000;
+		}
+		&::-webkit-scrollbar-corner {
+			background: #220000;
+		}
+
+		header{
+			background:#661111;
+			white-space:nowrap;
+			overflow: hidden;
+			user-select:none;
+			-webkit-user-select: none;
+			margin-bottom: 30px;
+			box-sizing: border-box;
+			height: auto;
+
+			#headerSearchOuter{
+				width: 100%;
+				background-color: #400;
+				height: 45px;
+				display: flex;
+				justify-content: center;
+				align-content: center;
+				border-bottom: solid 5px #200;
+
+				#headerSearchInner{
+					width: 100%;
+					margin: auto 10px;
+					outline: none;
+					height: 24px;
+					border: #200 3px solid;
+					border-radius: 10px;
+					background-color: #811;
+					letter-spacing: 1px;
+					color: black;
+					font-family: "Kurale", "Scheherazade New";
+					font-style: italic;
+					font-weight: bold;
+					font-size: 15px;
+					line-height: 18px;
+					padding: 0px 10px;
+					text-overflow: ellipsis;
+
+					&::placeholder{
+						color: black;
+					} 
+				}
+			}
+
+			#leftB{
+				left:10px
+			}
+			#rightB{
+				right:10px
+			}
+
+			.sideB{
+				position:absolute;
+				border:5px solid #333333;
+				background-color:#666666;
+				width:30px;
+				height:30px;
+				padding:0px;
+				margin:0px;
+				text-align:center;
+				border-radius:15px;
+				font-size:18px;
+				top: 120px;
+				transition: opacity 1s;
+				opacity: 0;
+				
+				i{
+					line-height:28px
+				}
+
+			}
+
+			.sideB.allowHover{
+				opacity: 0.6;
+
+				&:hover{
+					opacity: 0.9;
+					cursor: pointer;
+				}
+			}
+		
+			#buttonsContainer{
+				overflow-x: scroll;
+
+				&::-webkit-scrollbar {
+					height: 10px;
+				}
+				&::-webkit-scrollbar-track {
+					background: #440000;
+				}
+				&::-webkit-scrollbar-thumb {
+					background: #200;
+				}
+				
+				&::-webkit-scrollbar-thumb:hover{
+					cursor: pointer;
+					background: #100;
+				}
+
+				.imageButton{
+					vertical-align:top;
+					width: 140px;
+					height: 130px;
+					padding:5px 4px;
+					margin: 13px 40px 13px 0px;
+					box-sizing: content-box;
+					background-image:linear-gradient(to bottom right,#DDAA55, #FFCC77,#DDAA55);
+					border:8px #663300 ridge;
+					font-family:"Kurale", "Scheherazade New";
+					font-size: 18px;
+					font-weight:bold;
+					line-height:26px;
+					color:#663300;
+					word-break: break-word;
+					cursor:pointer;
+					text-transform: capitalize;
+					text-overflow: ellipsis;
+					white-space:normal;
+					overflow: hidden;
+
+					&:focus{
+						outline:none;
+					}
+
+					&:first-child{
+						margin-left: 40px;
+					}
+				}
+			}
+		}
+
+		#skipTop{
+			position: fixed;
+			border:6px solid #200;
+			opacity: 0;
+			transition: opacity 0.5s;
+			border-radius: 10px;
+			height: 35px;
+			width: 50px;
+			right:50px;
+			top:30px;
+			background-color: #661111;
+			text-align: center;
+			z-index: 5;
+
+			a{
+				color: #200;
+				display: none;
+
+				i{
+					width: 50px;
+					line-height: 35px;
+					font-size: 30px;
+				}
+			}
+		}
+		
+		#skipTop.allowHover{
+			opacity: 0.7;
+			
+			a{
+				display: block;
+			}
+
+			&:hover{
+				opacity: 1;
+				cursor: pointer;
+			}
+		}
+
+		main{
+			width:100%;
+			display: grid;
+			grid-template-columns: 18% auto;
+
+			aside{
+				position: relative;
+				margin:50px 0px 0px 0px;
+
+				#sourceBlock{
+					bottom: 0px;
+					overflow: hidden;
+					background-color: #222;
+					border:4px black solid;
+					border-left-style:none;
+					border-bottom-style:none;
+					border-radius: 0px 15px 0px 0px;
+					width: 80%;
+					padding: 6px 8px;
+					text-transform: capitalize;
+					font-family: "Kurale", "Scheherazade New";
+					font-weight: bold;
+					
+					p{
+						width: max-content;
+						line-height: 24px;
+						font-size: 18px;
+						color: #999;
+						text-decoration: none;
+						margin: 0px;
+						text-shadow: 2px 2px 2px black;
+					}
+
+					#listS{
+						position: absolute;
+						display: none;
+						padding: 6px 6px 5px 5px;
+						max-width: 500px;
+						width: max-content;
+						background-color: #222;
+						z-index: 10;
+						left: 40%;
+						border:solid 4px black;
+						border-radius: 15px;
+						box-sizing: border-box;
+						text-transform: none;
+
+						ul{
+							margin:0px;
+							padding-left: 15px;
+							list-style: none;
+						
+							li{
+								padding-bottom: 4px;
+								word-break: break-all;
+
+								&::before{
+									content: "\2022";
+									color: #999;
+									font-weight: bold;
+									display: inline-block;
+									position: absolute;
+									left: 0.5em;
+								}
+
+								a{
+									color: #999;
+									line-height: 10px;
+									font-size: 15px;
+									text-decoration: none;
+									box-sizing: border-box;
+
+									&:hover{
+										text-decoration:underline;
+									}
+
+									&:visited{
+										color:#999;
+									}
+								}
+							}
+						}
+					}
+
+					&:hover #listS{
+						display: block;
+					}
+				}
+
+				#subTopicBlock{
+					min-height:350px;
+					border:4px black solid;
+					border-left-style:none;
+					width:100%;
+					overflow:hidden;
+					box-sizing: border-box;
+					border-radius: 0px 15px 15px 0px;
+					background-color:#333333;
+					padding-bottom:20px;
+					position: relative;
+
+					#asideSearch{
+						bottom: 0px;
+						overflow: hidden;
+						background-color: #1A1A1A;
+						border-bottom:4px black solid;
+						width: 100%;
+						padding: 5px 7px 5px 5px;
+						text-transform: capitalize;
+						text-shadow: 2px 2px 2px black;
+						position:relative;
+						box-sizing:border-box;
+
+						input{
+							box-sizing:border-box;
+							width:100%;
+							padding: 2px 5px;
+							background-color: #222;
+							color: #999;
+							border:black 3px solid;
+							border-radius: 6px;
+							outline:none;
+							font-family:"Kurale", "Scheherazade New";
+							text-overflow: ellipsis;
+							font-size: 14px;
+							font-weight: bold;
+							letter-spacing: 0.1em;
+
+							&:disabled::placeholder{
+								visibility: hidden;
+							}
+						}
+					}
+
+					#loadingImage{
+						position:absolute;
+						visibility: hidden;
+						background-color:transparent;
+						margin-top:50px;
+						width: 100%;
+						display: flex;
+						justify-content: center;
+
+						img {
+							width: 40%;
+							max-width: 100px;
+							border:3px black solid;
+							border-radius: 50%;
+						}
+					}
+				
+					button{
+						border-style: none none solid none;
+						border-color:black;
+						outline:none;
+						padding:0px;
+						width:85%;
+						margin:22px 0px 0px 0px;
+						background-color:transparent;
+						text-align:left;
+						box-sizing: border-box;
+						cursor: pointer;
+
+						p{
+							background-color:#EEBB55;
+							margin: 0px 20px 0px 0px;
+							border-radius: 0px 5px 0px 0px;
+							border-right-style:solid;
+							border-top-style:solid;
+							border-width:3px;
+							border-color: #660000;
+							padding:0 6px 0 6px;
+							font-family:"Playpen Sans", "Scheherazade New";
+							text-transform: capitalize;
+							font-weight: 600;
+							font-size: 14px;
+							line-height:20px;
+							word-wrap:break-word;
+							text-overflow: ellipsis;
+							transition: margin 0.2s, padding-left 0.2s;
+						}
+
+						&:hover p{
+							margin-right: 12px;
+							padding-left: 14px;
+						}
+					}
+
+					button.selected{
+						cursor: default;
+						margin: 18px 0px 0px 0px;
+
+						p{
+							margin-right: 12px;
+							padding: 0 6px 4px 14px;
+						}
+					}
+				}
+			}
+
+			#scroll {
+				.scrollRoller, #maintext{
+					float: right;
+					position: relative;
+				}
+
+				.scrollRoller{
+					z-index: 2;
+					background-color: #600;
+					background-position: 10px 100px;
+					width: calc(92% + 18px);
+					height: 40px;
+					border-radius: 12px / 20px 0px 0px 20px;
+					box-shadow: 
+						-3px 0px 0px 0px #b3834c,
+						10px 6px 15px 0px rgb(0, 0, 0), 
+						0px -1px 15px 0px rgb(0, 0, 0);
+
+					&::before, &::after{
+						content: "";
+						position: absolute;
+						border-radius: 12px / 20px 0px 0px 20px;
+						height: 40px;
+						right: 0;
+						width: calc(100% - 4px);
+					}
+
+					&::before{
+						background-image: url('/pics/scroll.png');
+						background-size: 100% auto;
+					}
+
+					&::after{
+						background-color: #88551b60;
+					}
+				}
+					
+				#scrollBottom::before{
+					background-position: 0 var(--bottomScrollBgPos);
+					transition: background-position var(--maintextTransitionTime);
+				}
+
+				#maintext{
+					background-color:#fe9;
+					background-size: 100% auto;
+					background-image:url('/pics/scroll.png');
+					border-left-style:solid;
+					border-right-style:solid;
+					border-color:#660000;
+					border-width:4px;
+					width: 92%;
+					text-align:left;
+					overflow:hidden;
+					box-sizing: border-box;
+					padding:10px 0px 20px 0px;
+					transition: max-height var(--maintextTransitionTime);
+					box-shadow: -2px 0px 0px 0px #e3d49d;
+					z-index: 1;
+
+					h1{
+						margin:140px 0px 0px 0px;
+						font-family:"Kurale", "Scheherazade New";
+						text-transform: capitalize;
+						padding: 0px 30px;
+						font-size:50px;
+						width:100%;
+						letter-spacing: 1px;
+						text-align:center;
+						box-sizing: border-box;
+					}
+
+					h2{
+						font-family:"Playpen Sans", "Scheherazade New";
+						margin:30px 0px 120px 0px;
+						padding: 0px 40px;
+						font-size: 20px;
+						line-height: 28px;
+						font-weight: normal;
+						box-sizing: border-box;
+						width:100%;
+						text-align:center;
+						text-transform: capitalize;
+					}
+
+					h3{
+						font-family:"kurale","Scheherazade New";
+						margin:0px;
+						padding:28px 50px 8px 40px;
+						text-decoration:underline;
+						font-size:32px;
+						line-height:34px;
+						text-transform: capitalize;
+					}
+
+					h4{
+						margin:0px;
+						text-align: center;
+						padding:60px 60px 15px 60px;
+						font-size:30px;
+						line-height:32px;
+						font-family:"kurale", "Scheherazade New";
+						text-transform: capitalize;
+					}
+
+					p{
+						font-family:"Playpen Sans", "Scheherazade New";
+						font-weight: 400;
+						margin:0px;
+						padding:20px 50px 0px 50px;
+						font-size: 20px;
+						line-height: 34px;
+						letter-spacing: -1px;
+					}
+
+					.arabic{
+						font-family:"Scheherazade New";
+						font-size:25px;
+						font-weight: bold;
+						line-height:45px;
+						text-align:justify;
+						direction:rtl;
+						position:relative;
+						padding:20px 80px 0px 80px;
+
+						&:hover .verseSpan{
+							opacity: 1;
+						}
+					}
+
+					.quote{
+						padding: 15px 90px 0px 90px;
+						font-family: "Edu TAS Beginner", "Scheherazade New";
+						line-height: 25px;
+						text-align: justify;
+						font-weight: 700;
+					}
+
+					ul{
+						list-style: disc;
+					}
+
+					ol, ul{
+						margin:20px 85px 0px 70px;
+						padding-left:20px;
+						font-size:19px;
+						line-height:25px;
+						font-family:"Delius", "Scheherazade New";
+						font-weight:bold;
+
+						li{
+							padding-bottom:14px;
+							
+							div{
+								padding-bottom: 8px;
+
+								&:last-of-type{
+									padding-bottom: 0px;
+								}
+							}
+
+							.bulletArabic{
+								font-family:"Scheherazade New";
+								font-weight: bold;
+								font-size: 22px;
+								line-height: 44px;
+								text-align:justify;
+								direction:rtl;
+								padding-left: 20px;
+								padding-right: 20px;
+
+								&:hover span{
+									opacity: 1;
+								}
+							}
+
+							.bulletQuote{
+								font-family:"Edu TAS Beginner", "Scheherazade New";
+								padding-left: 40px;
+								padding-right: 40px;
+								text-align:justify;
+								font-weight: 700;
+							}
+
+							br{
+								height: 8px;
+								display: block;
+								content: " ";
+							}
+						}
+					}
+
+					.verseSpan{
+						font-family:"Kurale", "Scheherazade New";
+						display:inline-block;
+						font-size:18px;
+						line-height:22px;
+						font-weight: bold;
+						border:#600000 4px solid;
+						background-color:#fe9;
+						border-radius: 6px;
+						color:black;
+						text-align:justify;
+						padding:1px 4px 1px 4px;
+						margin:0px;
+						box-sizing: border-box;
+						transition: opacity 0.5s;
+						opacity: 0;
+					}
+
+					p sup, ul sup, ol sup{
+						font-size:13px;
+						vertical-align:top;
+						position:relative;
+						top:-0.3em;
+						font-weight:bold;
+
+						a{
+							color:black;
+							text-decoration:none
+
+							&:visited{
+								text-decoration:none;
+								color:black;
+							}
+
+							&:hover{
+								text-decoration:underline
+							}
+						}
+					}
+
+					hr{
+						margin: 30px 60px;
+						border: 1px black solid;
+					}
+
+					h5{
+						border-bottom: 3px black solid;
+						margin: 50px 30px 5px 30px;
+						padding: 0px 10px;
+						font-size: 30px;
+						line-height: 40px;
+						font-family:"Kurale";
+					}
+
+					#reference, #references{
+						margin:0px 48px;
+						padding:10px 46px;
+						list-style:none;
+						font-size:18px;
+						line-height:25px;
+						font-family:"Playpen Sans", "Scheherazade New";
+						counter-reset:list;
+						position:relative;
+						font-weight:normal;
+						
+						li{
+							padding:2px 0px;
+
+							&::before{
+								counter-increment:list;
+								vertical-align: middle;
+								content:"[" counter(list) "]";
+								position:absolute;
+								left: 0px;
+							}
+						
+							a{
+								font-weight: bold;
+								color:black;
+								text-decoration: none;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		footer{
+			width:100%;
+			margin:0px;
+			margin-top:50px;
+			padding:25px 0px;
+			background:#AA2211;
+			border-top-style:solid;
+			border-width:4px;
+			border-color:#550000;
+			font-family:"Pinyon Script";
+			font-weight: bold;
+			letter-spacing: 1px;
+			display: grid;
+			grid-template-columns: repeat(auto-fit,  33%);
+			justify-content: space-evenly;
+			align-items: center;
+			user-select: none;
+			-webkit-user-select: none;
+				
+			a{
+				color:black;
+				text-align:center;
+				text-decoration:none;
+				font-size:30px;
+				line-height:34px;
+				padding: 5px 6px;
+				text-transform: capitalize;
+
+				&:hover{
+					font-size:32px;
+					padding: 5px 3px;
+				}
+			}
+		}
+	}
+}

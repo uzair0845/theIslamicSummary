@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Islamic Summary | Contact</title>
+		<link rel="icon" type="image/png" href="/pics/logo.png"/>
+		<link href="https://fonts.googleapis.com/css2?family=Kurale&family=Pinyon+Script&display=swap&family=Patrick+Hand" rel="stylesheet">
+		<script>
+			function doSubmit(event){
+				event.preventDefault();
+
+				let submitEl = document.getElementById("submit");
+				submitEl.setAttribute("disabled", true);
+				
+				let formData = new FormData(document.getElementById("myForm"), submitEl);
+				var resObject = {};
+				formData.forEach((value, key) => resObject[key] = value);
+
+				fetch("/contactResponse", {
+					method: "POST",
+					body: JSON.stringify(resObject)
+				})
+				.then(res => res.text())
+				.then(res => {
+					console.log(res)
+					submitEl.removeAttribute("disabled");
+					alert("Form sent successfully!");
+				})
+				.catch(err => {
+					alert("There was an error!");
+					console.log(err);
+				});
+			}
+		</script>
+		<style>
+			body{
+				background-image: linear-gradient(145deg,#900,#600,#500);
+				min-height: 100vh;
+				padding-top: 100px;
+				box-sizing: border-box;
+				margin: 0px;
+				min-width: 400px;
+				position: relative;
+				padding-bottom: 150px;
+			}
+			#mainForm{
+				width: 90%;
+				margin-left: auto;
+				margin-right: auto;
+				background-color: rgb(250, 220, 150);
+				left: 0;
+				right: 0;
+				border: solid 5px rgb(200, 160, 110);
+				padding-bottom: 15px;
+				
+				#topSide{
+					width: 100%;
+					text-align: center;
+					padding: 10px 0px 18px 0px;
+					font-family: "Kurale";
+					font-size: 30px;
+					line-height: 34px;
+					text-decoration: underline;
+					font-weight: bold;
+				}
+
+				#inputsContainer{
+					&:after{
+						content:'.';
+						display: block;
+						width: 100%;
+						clear: both;
+						visibility: hidden;
+						line-height: 20px;
+					}
+
+					#leftSide{
+						width: 45%;
+						display: block;
+						float: left;
+						box-sizing: border-box;
+						padding-left: 35px;
+						border-right: solid 1px rgb(150, 100, 60);
+						height: 200px;
+
+						.ll{
+							font-family: "Kurale";
+							font-size: 22px;
+							line-height: 32px;
+							height: 32px;
+							font-weight: bold;
+							width: 140px;
+							display: inline-block;
+							margin-top: 15px;
+							box-sizing: border-box;
+							font-style: italic;
+						}
+						.lr{
+							display: inline-block;
+							letter-spacing: 1px;
+							font-family: "Patrick Hand";
+							font-size: 18px;
+							line-height: 30px;
+							height: 32px;
+							font-weight: bold;
+							background-color: rgb(240, 200, 140);
+							border-bottom: solid rgb(160, 120, 80);
+							border-width: 0px 0px 2px 0px;
+							width: 250px;
+							margin-top: 15px;
+							margin-right: 20px;
+							padding: 0px 4px;
+							outline: 0;
+							box-sizing: border-box;
+						}
+					}
+					#rightSide{
+						border-left: solid 1px rgb(150, 100, 60);
+						float: right;
+						width: 55%;
+						display: block;
+						box-sizing: border-box;
+						padding-left: 25px;
+						padding-right: 45px;
+						height: 200px;
+
+						.rl{
+							font-family: "Kurale";
+							margin-top: 0px;
+							font-size: 22px;
+							line-height: 30px;
+							font-weight: bold;
+							box-sizing: border-box;
+							font-style: italic;
+						}
+						#description{
+							display: inline-block;
+							outline: 0;
+							font-family: "Patrick Hand";
+							letter-spacing: 1px;
+							font-size: 18px;
+							line-height: 30px;
+							height: 124px;
+							font-weight: bold;
+							background-color: rgb(240, 200, 140);
+							border: solid 2px rgb(160, 120, 80);
+							width: 100%;
+							box-sizing: border-box;
+							margin-top: 15px;
+							padding: 0px 6px;
+							resize: none;
+							overflow: hidden;
+						}
+					}
+				}
+				#submit{
+					font-family: "Kurale";
+					font-weight: bold;
+					font-size: 20px;
+					line-height: 28px;
+					width: 100px;
+					text-align: center;
+					display: block;
+					margin-top: 20px;
+					margin-left: auto;
+					margin-right: auto;
+					outline: 0;
+					background-color: rgb(240, 200, 140);
+					border: none;
+					border-bottom: solid 2px rgb(160, 120, 80);
+					cursor: pointer;
+				}
+
+				input, textarea{
+					&:-webkit-autofill,
+					&:-webkit-autofill:hover, 
+					&:-webkit-autofill:focus, 
+					&:-webkit-autofill:active {
+						-webkit-box-shadow: 0 0 0 30px rgb(240, 200, 140) inset;
+					}
+				}
+			}
+
+			footer{
+				background-color:#440000;
+				border-top: solid 4px #200000;
+				bottom: 0px;
+				width: 100%;
+				text-align: center;
+				color: black;
+				height: 90px;
+				line-height: 90px;
+				position: absolute;
+
+				a{
+					font-family: 'Pinyon Script';
+        	font-size: 36px;
+					line-height: 40px;
+					padding-bottom: 8px;
+					font-weight: bold;
+					letter-spacing: 2px;
+					text-decoration: none;
+					display: inline-block;
+					vertical-align: middle;
+					color:#F6B020;
+					text-shadow: 1px 1px rgba(239,136,32,0.4);
+
+					&:hover{
+						font-size: 38px;
+					}
+					&:visited{
+						color: #F6B020;
+					}
+				}
+			}
+
+			@media only screen and (max-width: 1100px) {
+				body{
+					padding-top: 50px;
+					.ll{
+						font-size: 18px;
+						line-height: 22px;
+						height: 22px;
+					}
+					.lr{
+						font-size: 16px;
+						line-height: 24px;
+						height: 26px;
+						margin-top: 12px;
+					}
+					.rl{
+						font-size: 18px;
+						line-height: 25px;
+					}
+					#description{
+						margin-top: 12px;
+					}
+					#submit{
+						font-size: 15px;
+						line-height: 20px;
+					}
+				}
+			}
+
+			@media only screen and (max-width: 700px) {
+				#leftSide{
+					border-right: 0px;
+					width: 100%;
+					float: none;
+					height: fit-content;
+				}
+				#rightSide{
+					width: 100%;
+					border-left: 0px;
+					float: none;
+					height: fit-content;
+					margin-top: 25px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mainForm">
+			<div id="topSide">Contact Form</div>
+			<form name="myForm" id="myForm" onsubmit="doSubmit(event)">
+				<div id="inputsContainer">
+					<div id="leftSide">
+						<label class="ll" for="name">Name:</label>
+						<input id="name" type="text" class="lr" name="name" required autocomplete="on">
+						<br/>
+						<label class="ll" for="email">Email:</label>
+						<input id="email" type="email" class="lr" name="email" required autocomplete="on">
+					</div>
+					<div id="rightSide">
+						<label class="rl" for="description">Description:</label>
+						<textarea id="description" name="description" required></textarea>
+					</div>
+				</div>
+				<input type="submit" value="Submit" id="submit">
+			</form>
+		</div>
+		<footer><a href="/">Home</a></footer>
+	</body>
+</html>

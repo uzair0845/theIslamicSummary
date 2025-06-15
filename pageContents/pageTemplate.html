@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>%TITLE%</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+		<link rel="icon" type="image/png" href="/pics/logo.png"/>
+		<link rel="stylesheet" href="/pageStyles/page.css"/>
+		<script>const chapters = JSON.parse(`%CHAPTERS%`);</script>
+		<script src="/pageScripts/page.js" type="text/javascript"></script>
+
+		<!--External links-->
+		<Link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Delius&family=Edu+TAS+Beginner:wght@700&family=Kurale&family=Pinyon+Script&family=Playpen+Sans:wght@100..800&family=Scheherazade+New:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<div id="headerSearchOuter">
+				<input id="headerSearchInner" type="text" placeholder="Search Chapter...">
+			</div>
+			<div id="leftB" class="sideB" onclick="leftClick()" onmouseenter="timer = setInterval(scrollToLeft,10)" onmouseleave="clearInterval(timer)">
+				<i class="fa fa-angle-left"></i>
+			</div>
+			<div id="buttonsContainer">%HEADER_CONTENT%</div>
+			<div id="rightB" class="sideB" onclick="rightClick()" onmouseenter="timer2 = setInterval(scrollToRight,10)" onmouseleave="clearInterval(timer2)">
+				<i class="fa fa-angle-right"></i>
+			</div>
+		</header>
+		<div id="skipTop"><a href="#headerSearchOuter" title="Go Up"><i class="fa fa-chevron-up"></i></a></div>
+		<main>
+			<aside>
+				%SOURCE_BLOCK_CONTENT%
+				<div id="subTopicBlock">
+					<div id="asideSearch"><input type="text" disabled placeholder="Search subchapter..." name="searchSubchapter"></div>
+					<div id="loadingImage"><img src="/pics/loading.gif" alt=""/></div>
+					<div id="subchapterContainer"></div>
+				</div>
+			</aside>
+			<div id="scroll">
+				<div id="scrollTop" class="scrollRoller"></div>
+				<div id="maintext">
+					<h1>%TITLE%</h1>
+					%SUBTITLE%
+				</div>
+				<div id="scrollBottom" class="scrollRoller"></div>
+			</div>
+		</main>
+		<footer>%FOOTER_CONTENT%</footer>
+	</body>
+</html>

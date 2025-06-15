@@ -1,0 +1,69 @@
+Chapter files should have names in one of these format:
+- chpt[chapter number]/0.html
+- [chapter number].html
+- [chapter name].html
+
+Subchapter files should just have names in one of these format:
+- chpt[chapter number]/[subchapter number].html
+- chpt[chapter number]/[subchapter name].html
+- [chapter name]/[subchapter name].html
+- [chapter name]/[subchapter number].html
+
+Chapter and subchapter names are defined in `info.ts`, and can have underscore. When showing the chapter and subchapter names, the underscore are replaced with spaced.
+
+Delimiters are not necessary for one Arabic sentence.
+
+<h2> element will only contain <span> if two or more lines, and there should be <br/> between the <span>'s.
+<h4> is for subsubtitle within subchapter.
+
+
+Use only these tags for paragraphs:
+<p>
+<p id="quote">				                     
+<p class="arabic"></p>
+<p class="arabic" verse="SNumber:VNumber">
+
+Use this format for list:
+<ul>
+	<li>
+		<div></div>
+		<div class="bulletArabic" verse="SNumber:VNumber"></div>
+		<div class="bulletArabic"></div>
+		<div class="bulletQuote"></div>
+	</li>
+</ul>
+
+Use this for sources (the id can be "reference" or "references"):
+<ol id="reference">
+	<li><a href="source link">source text<a></li>
+	<li>source text</li>
+</ol>
+
+
+TEST:
+<h1 id="title">inset title</h1>
+<div id="QABlock">
+	<p class="question">First Ques7tion</p>
+	<p class="answer">First Ans7wer</p>
+	<p class="question">First Qu9estion</p>
+	<ul class="answer">
+		<li class="correct">sadasd</li>
+		<li>awdawdwadd</li>
+	</ul>
+	<p class="question"></p>
+	<p class="answer"></p>
+	<p class="arabic"></p>
+</div>
+
+
+Rules:
+- Default hadith website is Sunnah.com.
+- Copy the contents of the books exactly.
+- If a reference is mentioned from the Quran, Sunnah, or any other book. Give the same reference, not a different one. For example, if a hadith is mentioned in a book with reference "Bukhari xyz", you write the reference "Bukhari xyz" in the footnote. If you find another reference for the same hadith, lets say "Bukhari abc", then you dont write it.
+- You can make the reference more detailed then whats provided in the book. For example, if the book says a hadith is from Bukhari, and you find out that its Bukhari, Book2, Hadith 5, then you can write the more detailed reference.
+- If the hadith mentioned in the book and the same hadith mentioned somewhere else differ in their wording then you copy whats written in the book.
+- If a book mentions a transliteration and you know the exact Arabic wording, then the Arabic wording would be recommended.
+- If Sunnah.com and the book references the same hadith but different numbering, then take the numbering of Sunnah.com.
+- If the book provides a transaltion, then use the translation of the book only.
+- If the hadith is not found in Sunnah.com, then use whatever the book provided.
+- If quran transaltion is not provided, then use Muhsin Khan.

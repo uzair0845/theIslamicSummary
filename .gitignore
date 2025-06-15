@@ -1,0 +1,7 @@
+*.kra
+*~
+pageContents/private
+pageContents/old
+pageContents/unused
+
+node_modules
