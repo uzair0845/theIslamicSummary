@@ -40,7 +40,7 @@ function leftClick()		{ buttonsContainer.scrollLeft = buttonsContainer.scrollLef
 function scrollToRight(){ buttonsContainer.scrollLeft = buttonsContainer.scrollLeft + 4; }
 function rightClick()		{ buttonsContainer.scrollLeft = buttonsContainer.scrollLeft + longSkipLength; }
 
-//event functions (header buttons and aside buttons)
+//event functions (header related)
 function headerButtonClicked(num){
 	if ((curChapterNum == num+1) && (curSubchapterNum == 0)) return;
 	curChapterNum = num+1; //num 0 refers to chapter 1
@@ -75,6 +75,8 @@ function headerButtonClicked(num){
 	window.setTimeout(()=>{ loadingImageEl.style.visibility = "visible"; }, scrollClosingTime);
 }
 
+
+//event function (aside related)
 function asideButtonClicked(subchapterNum){
 	if (curSubchapterNum == subchapterNum) return;
 
@@ -83,11 +85,12 @@ function asideButtonClicked(subchapterNum){
 	curSubchapterNum = subchapterNum;
 	document.getElementById("asideButton"+curSubchapterNum).classList.add("selected");
 
+
 	let scrollClosingTime;
 	if (mainTextEl.style.maxHeight === "0px") scrollClosingTime = 0;
 	else scrollClosingTime = 1000;
 
-	updateMaxHeight(0);
+	updateMaxHeight(30);
 
 	let chapterName = chapters[curChapterNum-1][0];
 	let subchapterName = chapters[curChapterNum-1][curSubchapterNum];
@@ -104,6 +107,14 @@ function asideButtonClicked(subchapterNum){
 	.then(res => res.text())
 	.then(res => window.setTimeout(updateMainText, scrollClosingTime, subchapterName, res))
 	.catch(err => window.setTimeout(updateMainText, scrollClosingTime, subchapterName, err, true));
+}
+
+//event function (misc.)
+function asideSearchInput(e){
+	subchapterContainerEl.childNodes.forEach(el => {
+		if (el.textContent.toLowerCase().includes(e.target.value.toLowerCase())) el.style.display = "block";
+		else el.style.display = "none";
+	});
 }
 
 //assist functions
@@ -159,7 +170,7 @@ function updateAside(subChapters){
 		curButton.appendChild(curP);
 		curButton.setAttribute("type","button");
 		curButton.id = "asideButton" + subchapterNum;
-		curButton.onclick = () => asideButtonClicked(subchapterNum);
+		curButton.addEventListener("click", () => asideButtonClicked(subchapterNum));
 		subchapterContainerEl.appendChild(curButton);
 	});
 }
@@ -210,7 +221,7 @@ function updateMainText(title, res, fetchError = false){
 	let referencesEl = document.querySelector("#references, #reference");
 	if (referencesEl) {
 		let sourcesHeading = document.createElement("h5");
-		sourcesHeading.textContent = "Sources";
+		sourcesHeading.textContent = "Footnotes";
 		mainTextEl.insertBefore(sourcesHeading, referencesEl);
 	}
 

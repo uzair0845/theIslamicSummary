@@ -1,6 +1,6 @@
 {
   "name": "the-islamic-summary",
-  "version": "1.3.0",
+  "version": "2.1.0",
   "description": "Personal website for Islamic study notes",
   "homepage": "https://github.com/uzair0845/the-islamic-summary#readme",
   "bugs": {
@@ -15,7 +15,8 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "start": "npx tsx index.ts",
+    "start": "set \"NODE_ENV=development\" && npx tsx index.ts",
+    "dev": "set \"NODE_ENV=production\" && npx tsx index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

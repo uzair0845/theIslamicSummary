@@ -2,8 +2,9 @@
 <html lang="en">
 	<head>
 		<title>%TITLE%</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 		<meta charset="UTF-8">
+		<link rel="preload" as="image" href="/pics/scroll.png">
 		<link rel="icon" type="image/png" href="/pics/logo.png"/>
 		<link rel="stylesheet" href="/pageStyles/page.css"/>
 		<script>const chapters = JSON.parse(`%CHAPTERS%`);</script>
@@ -33,8 +34,10 @@
 			<aside>
 				%SOURCE_BLOCK_CONTENT%
 				<div id="subTopicBlock">
-					<div id="asideSearch"><input type="text" disabled placeholder="Search subchapter..." name="searchSubchapter"></div>
-					<div id="loadingImage"><img src="/pics/loading.gif" alt=""/></div>
+					<div id="asideSearch">
+						<input type="text" disabled placeholder="Search subchapter..." name="searchSubchapter" oninput="asideSearchInput(event)">
+					</div>
+					<div id="loadingImage"><img src="/pics/loading.gif" alt="" loading="lazy"/></div>
 					<div id="subchapterContainer"></div>
 				</div>
 			</aside>

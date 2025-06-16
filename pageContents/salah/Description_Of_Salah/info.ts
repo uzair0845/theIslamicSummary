@@ -1,5 +1,5 @@
 export const TITLE = "Description Of Salah";
-export const SUBTITLE = "Collected From Various Sources";
+export const SUBTITLE = ["Collected From Various Sources"];
 export const SOURCES = ["http://aa.trinimuslims.com/ilm/?book=the_prophets_prayer"]
 
 export const CHAPTERS = [

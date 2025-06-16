@@ -7,6 +7,9 @@ I made this website long ago, but never published it online, which is why there 
 
 Versioning command: "npm version [new-version] --git-tag-version false"
 
+update 2.1: 
+- Added css for mobile, and aside search input now works.
+
 update 1.3:
 - Removed `vecel.json`, cause I switched to Render.
 

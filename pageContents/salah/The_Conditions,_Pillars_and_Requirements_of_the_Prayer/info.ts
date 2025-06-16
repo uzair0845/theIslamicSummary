@@ -1,7 +1,9 @@
 export const TITLE = "The Conditions, Pillars And Requirements Of The Prayer";
 export const SUBTITLE = [
-  "By Muhammad bin Abdil-Wahhaab","Translated by Abu Maryam Isma'eel Alarcon"
+  "By Muhammad bin Abdil-Wahhaab",
+  "Translated by Abu Maryam Isma'eel Alarcon"
 ];
+
 export const SOURCES = ["http://aa.trinimuslims.com/ilm/?book=the_prophets_prayer"];
 export const CHAPTERS = [
   ["Preface"],

@@ -7,7 +7,7 @@ import evalArticlePage from './evalArticlePage';
 import { topics} from './topics';
 
 const hostname = '0.0.0.0';
-const port = process.env.PORT || 6236;
+const port = (process.env.PORT || 6236) as number;
 
 function readFileAndSendRes(res: ServerResponse<IncomingMessage>, fileName: string, responseType: string, encoding?: BufferEncoding){
   try{
@@ -44,7 +44,7 @@ async function checkMakeSendPage(subDirectories: string[], res: ServerResponse<I
 const server = createServer(async (req, res) => {
   let qIndex = req.url?.indexOf('?') || -1;
   let location = qIndex > 0 ? req.url?.substring(0, qIndex) : req.url;
-  //console.log(req.url);
+  if (process.env.NODE_ENV === "production") console.log(req.url);
 
   //assist files
   if (!location) return500(res);
