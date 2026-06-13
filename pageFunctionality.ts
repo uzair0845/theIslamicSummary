@@ -1,5 +1,5 @@
 import { IncomingMessage, ServerResponse } from 'node:http';
-import { return500 } from './errors';
+import { return500 } from './errors.ts';
 import { readFileSync } from 'node:fs';
 
 //COMPLETE THIS

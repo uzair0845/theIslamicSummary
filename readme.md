@@ -7,6 +7,9 @@ I made this website long ago, but never published it online, which is why there 
 
 Versioning command: "npm version [new-version] --git-tag-version false"
 
+update 2.2: 
+- tsconfig, changed module to `nodenext`.
+
 update 2.1: 
 - Added css for mobile, and aside search input now works.
 

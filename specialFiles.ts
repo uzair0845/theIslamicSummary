@@ -1,4 +1,4 @@
-import {firstTopic, postLastTopicMarker, topics} from './topics';
+import {firstTopic, lastTopicString, topics} from './topics.ts';
 
 export const specialFiles: {[key:string]: (content: string) => string} = {
   "./pageScripts/home.js": (content) => homejsCase(content),
@@ -9,6 +9,6 @@ function homejsCase(content: string): string {
   ${content}
   topics = ${JSON.stringify(topics)};
   firstTopic = "${firstTopic}";
-  postLastTopicMarker = "${postLastTopicMarker}";
+  lastTopicString = "${lastTopicString}";
   `
 }

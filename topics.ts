@@ -1,5 +1,5 @@
 export const firstTopic = "tawheed";
-export const postLastTopicMarker = "POST_LAST_TOPIC";
+export const lastTopicString = "LAST_TOPIC";
 
 //topic: nexttopic, [summaryId1, extraInfo1], [summaryId2, extraInfo2], ...
 //SB means "Summarized book", and is only used when one book is used as the main source.
@@ -38,7 +38,7 @@ export const topics: {[key: string]: (string | string[])[]} = {
 		["how_are_we_obligated_to_interpret_the_noble_quran","SB (incomplete)"],
 	],
 	good_manners: [
-		postLastTopicMarker,
+		lastTopicString,
 		["gaurding_the_tongue","SB"],
 		["eating_etiquettes","(incomplete)"]
 	]

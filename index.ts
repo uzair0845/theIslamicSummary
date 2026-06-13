@@ -1,10 +1,10 @@
 import { createServer, IncomingMessage, ServerResponse } from 'node:http';
 import { readFileSync } from 'node:fs';
-import { return404, return500 } from './errors';
-import { specialFiles } from './specialFiles';
-import { formStuff, sendChapterContent, sendVerses, sendSubchapterContent } from './pageFunctionality';
-import evalArticlePage from './evalArticlePage';
-import { topics} from './topics';
+import { return404, return500 } from './errors.ts';
+import { specialFiles } from './specialFiles.ts';
+import { formStuff, sendChapterContent, sendVerses, sendSubchapterContent } from './pageFunctionality.ts';
+import evalArticlePage from './evalArticlePage.ts';
+import { topics } from './topics.ts';
 
 const hostname = '0.0.0.0';
 const port = (process.env.PORT || 6236) as number;
@@ -44,7 +44,7 @@ async function checkMakeSendPage(subDirectories: string[], res: ServerResponse<I
 const server = createServer(async (req, res) => {
   let qIndex = req.url?.indexOf('?') || -1;
   let location = qIndex > 0 ? req.url?.substring(0, qIndex) : req.url;
-  if (process.env.NODE_ENV === "production") console.log(req.url);
+  if (process.env.NODE_ENV === "development") console.log(req.url);
 
   //assist files
   if (!location) return500(res);

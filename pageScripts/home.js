@@ -4,7 +4,8 @@ var sectionEl;
 var allowSearchClick = false;
 var topics; //defined in topics.ts
 var firstTopic; //defined in topics.ts
-var postLastTopicMarker; //defined in topics.ts
+var lastTopicString; //defined in topics.ts
+const linkTransitiontime = 500 //ms
 
 // ABSRTACTION FUNCTIONS --------------------------
 function getIcon(extraInfo){
@@ -57,7 +58,7 @@ function setLinksStep2(){
 	var toSearch = document.getElementById("sinput").value.toLowerCase().replaceAll("_"," ");
 	var summaryId, extraInfo;
 	var curTopic = firstTopic;
-	while (curTopic !== postLastTopicMarker){
+	while (curTopic !== lastTopicString){
 		if (curTopic.toLowerCase().replaceAll("_"," ").includes(toSearch)) {
 			placeH2(curTopic);
 			topics[curTopic].forEach((subTopicInfo, i)=>{
@@ -86,10 +87,9 @@ function setLinksStep2(){
 						h2Placed = true;
 					}
 
-					let anchorHref = `${curTopic}/${summaryId}`;
-					let anchorText = `${summaryId.replaceAll("_"," ")} ${extraInfo}`;
-					let icon = getIcon(extraInfo);
-					addLink(anchorHref, anchorText, icon);
+					const anchorHref = `${curTopic}/${summaryId}`;
+					const anchorText = `${summaryId.replaceAll("_"," ")} ${extraInfo}`;
+					addLink(anchorHref, anchorText, getIcon(extraInfo));
 				}
 			})
 		};
@@ -99,12 +99,12 @@ function setLinksStep2(){
 
 	if (!sectionEl.childElementCount) sectionEl.appendChild(notFoundEl);
 	sectionEl.style.opacity = 1;
-	window.setTimeout(()=>{ allowSearchClick = true; }, 500);
+	window.setTimeout(()=>{ allowSearchClick = true; }, linkTransitiontime);
 }
 
 function setLinks(){
 	sectionEl.style.opacity = 0;
-	window.setTimeout(()=>{ setLinksStep2(); }, 500);
+	window.setTimeout(()=>{ setLinksStep2(); }, linkTransitiontime);
 }
 
 // START FUNC --------------------------------------------
