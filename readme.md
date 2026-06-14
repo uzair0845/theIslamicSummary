@@ -7,6 +7,11 @@ I made this website long ago, but never published it online, which is why there 
 
 Versioning command: "npm version [new-version] --git-tag-version false"
 
+update 2.3:
+- Font changes.
+- In topics.ts, changed the way topics are structured.
+- In home page, extra info about topics is not shown anymore. 
+
 update 2.2: 
 - tsconfig, changed module to `nodenext`.
 

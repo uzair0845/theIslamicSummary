@@ -8,7 +8,7 @@ html{
 
 	body{
 		background-image: url('/pics/background.png');
-		background-color:#a21;
+		background-color: #700000;
 		background-repeat: repeat;
 		background-position: left top;
 		background-attachment: scroll;
@@ -68,7 +68,7 @@ html{
 					border-radius: 10px;
 					background-color: #811;
 					color: black;
-					font-family: "Kurale", "Scheherazade New";
+					font-family: "Kurale";
 					font-style: italic;
 					font-weight: bold;
 					font-size: 15px;
@@ -137,7 +137,7 @@ html{
 					box-sizing: content-box;
 					background-image:linear-gradient(to bottom right,#DDAA55, #FFCC77,#DDAA55);
 					border:8px #663300 ridge;
-					font-family:"Kurale", "Scheherazade New";
+					font-family:"Kurale";
 					font-size: 18px;
 					font-weight:bold;
 					line-height:26px;
@@ -209,7 +209,7 @@ html{
 					width: 80%;
 					padding: 6px 8px;
 					text-transform: capitalize;
-					font-family: "Kurale", "Scheherazade New";
+					font-family: "Kurale";
 					font-weight: bold;
 					
 					p{
@@ -318,7 +318,7 @@ html{
 						p{
 							background-color:#EEBB55;
 							margin: 0;
-							font-family:"Playpen Sans", "Scheherazade New";
+							font-family:"Playpen Sans";
 							text-transform: capitalize;
 							font-weight: 600;
 							font-size: 14px;
@@ -391,7 +391,7 @@ html{
 
 					h1{
 						margin:140px 0px 0px 0px;
-						font-family:"Kurale", "Scheherazade New";
+						font-family:"Charm";
 						text-transform: capitalize;
 						width:100%;
 						text-align:center;
@@ -399,7 +399,7 @@ html{
 					}
 
 					h2{
-						font-family:"Playpen Sans", "Scheherazade New";
+						font-family:"Kurale";
 						margin:30px 0px 120px 0px;
 						line-height: 28px;
 						font-weight: normal;
@@ -410,7 +410,7 @@ html{
 					}
 
 					h3{
-						font-family:"kurale","Scheherazade New";
+						font-family:"kurale";
 						margin:0px;
 						text-decoration:underline;
 						font-size:32px;
@@ -421,12 +421,12 @@ html{
 					h4{
 						margin:0px;
 						text-align: center;
-						font-family:"kurale", "Scheherazade New";
+						font-family:"kurale";
 						text-transform: capitalize;
 					}
 
 					p{
-						font-family:"Playpen Sans", "Scheherazade New";
+						font-family:"Playpen Sans";
 						font-weight: 400;
 						margin:0px;
 						letter-spacing: -1px;
@@ -445,7 +445,7 @@ html{
 					}
 
 					.quote{
-						font-family: "Edu TAS Beginner", "Scheherazade New";
+						font-family: "Playpen Sans";
 						line-height: 25px;
 						text-align: justify;
 						font-weight: 700;
@@ -456,8 +456,7 @@ html{
 					}
 
 					ol, ul{
-						font-family:"Delius", "Scheherazade New";
-						font-weight:bold;
+						font-family:"Playpen Sans";
 
 						li{
 							padding-bottom:14px;
@@ -482,7 +481,7 @@ html{
 							}
 
 							.bulletQuote{
-								font-family:"Edu TAS Beginner", "Scheherazade New";
+								font-family:"Playpen Sans";
 								text-align:justify;
 								font-weight: 700;
 							}
@@ -496,7 +495,7 @@ html{
 					}
 
 					.verseSpan{
-						font-family:"Edu TAS Beginner", "Scheherazade New";
+						font-family:"Kurale";
 						display:inline-block;
 						font-weight: bold;
 						border:#600000 4px solid;
@@ -544,7 +543,7 @@ html{
 
 					#reference, #references{
 						list-style:none;
-						font-family:"Playpen Sans", "Scheherazade New";
+						font-family:"Playpen Sans";
 						counter-reset:list;
 						position:relative;
 						font-weight:normal;
@@ -576,18 +575,15 @@ html{
 			margin:0px;
 			margin-top:50px;
 			padding:25px 0px;
-			background:#AA2211;
-			border-top-style:solid;
-			border-width:4px;
-			border-color:#550000;
-			font-family:"Pinyon Script";
+			font-family:"Charm";
 			font-weight: bold;
-			letter-spacing: 1px;
 			display: grid;
 			justify-content: space-evenly;
 			align-items: center;
 			-webkit-user-select: none;
 			user-select: none;
+			background-color:#700000;
+			border-top: solid 4px #440000;
 
 			/*detect if two chidlren*/
 			&:has(> :nth-child(2):last-child){
@@ -600,13 +596,14 @@ html{
 			}
 				
 			a{
-				color:black;
 				text-align:center;
 				text-decoration:none;
 				font-size:30px;
 				line-height:34px;
 				padding: 5px 6px;
 				text-transform: capitalize;
+        color:#F6B020;
+        text-shadow: 1px 1px rgba(239,136,32,0.4);
 
 				&:hover{
 					font-size:32px;
@@ -674,7 +671,7 @@ html{
 							overflow: hidden;
 
 							input{
-								font-family:"Kurale", "Scheherazade New";
+								font-family:"Kurale";
 								font-weight: bold;
 								border:black 3px solid;
 								background-color: #222;
@@ -878,7 +875,7 @@ html{
 						background-color:#600;
 
 						input{
-							font-family:"Playpen Sans", "Scheherazade New";
+							font-family:"Playpen Sans";
 							border:#200 3px solid;
 							background-color: #EEBB55;
 							color: black;

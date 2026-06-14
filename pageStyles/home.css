@@ -188,17 +188,17 @@ body{
       margin:0px;
 
       a{
-        font-family:"Pinyon Script";
+        font-family:"Charm";
         text-align:center;
         text-decoration:none;
-        line-height:48px;
-        font-size: 34px;
+        line-height: 48px;
+        font-size: 30px;
         padding:5px 6px;
         color:#F6B020;
         text-shadow: 1px 1px rgba(239,136,32,0.4);
       }
       a:hover{
-        font-size:36px
+        font-size: 32px
       }
     }
   }

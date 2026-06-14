@@ -11,26 +11,16 @@ const linkTransitiontime = 500 //ms
 function getIcon(extraInfo){
 	let newIcon = null;
 	if (extraInfo.includes("SB")){
-		extraInfo = extraInfo.replace("SB","");
-		extraInfo = extraInfo.replace(" ","");
-
 		newIcon = document.createElement("i");
 		newIcon.classList.add("fa");
 		newIcon.classList.add("fa-book");
 		newIcon.title = "summarized book";
-		
-		sectionEl.appendChild(newIcon);
 	}
 	else if (extraInfo.includes("A")){
-		extraInfo = extraInfo.replace("A","");
-		extraInfo = extraInfo.replace(" ","");
-
 		newIcon = document.createElement("i");
 		newIcon.classList.add("fa");
 		newIcon.classList.add("fa-volume-up");
 		newIcon.title = "summarized audio";
-		
-		sectionEl.appendChild(newIcon);
 	}
 	return newIcon;
 }
@@ -55,19 +45,18 @@ function placeH2(curTopic){
 
 function setLinksStep2(){
 	sectionEl.innerHTML = '';
-	var toSearch = document.getElementById("sinput").value.toLowerCase().replaceAll("_"," ");
-	var summaryId, extraInfo;
-	var curTopic = firstTopic;
+	let toSearch = document.getElementById("sinput").value.toLowerCase().replaceAll("_"," ");
+	let summaryId;
+	let curTopic = firstTopic;
 	while (curTopic !== lastTopicString){
 		if (curTopic.toLowerCase().replaceAll("_"," ").includes(toSearch)) {
 			placeH2(curTopic);
 			topics[curTopic].forEach((subTopicInfo, i)=>{
 				if(i == 0) return; //first index is not about subtopic
 				summaryId = subTopicInfo[0];
-				extraInfo = subTopicInfo[1];
-				let anchorHref = `${curTopic}/${summaryId}`;
-				let anchorText = `${summaryId.replaceAll("_"," ")} ${extraInfo}`;
-				let icon = getIcon(extraInfo);
+				const anchorHref = `${curTopic}/${summaryId}`;
+				const anchorText = summaryId.replaceAll("_"," ");
+				const icon = (subTopicInfo.length > 1) ? getIcon(subTopicInfo[1]) : null;
 				addLink(anchorHref, anchorText, icon);
 			});
 		}
@@ -76,20 +65,17 @@ function setLinksStep2(){
 			topics[curTopic].forEach((subTopicInfo, i)=>{
 				if(i == 0) return; //first index is not about subtopic
 				summaryId = subTopicInfo[0];
-				extraInfo = subTopicInfo[1];
 
-				if (
-					extraInfo.toLowerCase().replaceAll("_"," ").includes(toSearch) ||
-					summaryId.toLowerCase().replaceAll("_"," ").includes(toSearch)
-				) {
+				if (summaryId.toLowerCase().replaceAll("_"," ").includes(toSearch)) {
 					if (!h2Placed) {
 						placeH2(curTopic);
 						h2Placed = true;
 					}
 
 					const anchorHref = `${curTopic}/${summaryId}`;
-					const anchorText = `${summaryId.replaceAll("_"," ")} ${extraInfo}`;
-					addLink(anchorHref, anchorText, getIcon(extraInfo));
+					const anchorText = summaryId.replaceAll("_"," ");
+					const icon = (subTopicInfo.length > 1) ? getIcon(subTopicInfo[1]) : null;
+					addLink(anchorHref, anchorText, icon);
 				}
 			})
 		};

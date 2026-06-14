@@ -6,16 +6,16 @@ export const lastTopicString = "LAST_TOPIC";
 export const topics: {[key: string]: (string | string[])[]} = {
 	tawheed: [
 		"aqeedah",
-		["The_names_of_Allah","(incomplete)"],
+		["The_names_of_Allah (incomplete)"],
 		["Explanation_Of_The_Four_Rules_Regarding_Shirk","SB"]
 	],
 	aqeedah: [
 		"supplication",
-		["The_Explanation_Of_The_Three_Fundamental_Principles","SB (incomplete)"]
+		["The_Explanation_Of_The_Three_Fundamental_Principles (incomplete)","SB"]
 	],
 	supplication: [
 		"purification",
-		["A_Collection_Of_Supplications","(incomplete)"],
+		["A_Collection_Of_Supplications (incomplete)"],
 		["Etiquettes_of_Supplicating_to_Allah","SB"],
 	],
 	purification: [
@@ -25,21 +25,21 @@ export const topics: {[key: string]: (string | string[])[]} = {
 	salah: [
 		"fasting",
 		["The_Conditions,_Pillars_and_Requirements_of_the_Prayer","SB"],
-		["Description_Of_Salah","(incomplete)"],
-		["As-Sunan_Ar-Rawatib",""]
+		["Description_Of_Salah (incomplete)"],
+		["As-Sunan_Ar-Rawatib"]
 	],
 	fasting: [
 		"tafsir",
-		["the_rulings_of_ramadan","SB (incomplete)"],
+		["the_rulings_of_ramadan (incomplete)","SB"],
 	],
 	tafsir: [
 		"good_manners",
-		["tafsir_ibn_kathir","SB (incomplete)"],
-		["how_are_we_obligated_to_interpret_the_noble_quran","SB (incomplete)"],
+		["tafsir_ibn_kathir (incomplete)","SB"],
+		["how_are_we_obligated_to_interpret_the_noble_qura (incomplete)","SB"],
 	],
 	good_manners: [
 		lastTopicString,
 		["gaurding_the_tongue","SB"],
-		["eating_etiquettes","(incomplete)"]
+		["eating_etiquettes (incomplete)"]
 	]
 };
