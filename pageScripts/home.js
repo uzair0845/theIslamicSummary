@@ -48,14 +48,15 @@ function setLinksStep2(){
 	let toSearch = document.getElementById("sinput").value.toLowerCase().replaceAll("_"," ");
 	let summaryId;
 	let curTopic = firstTopic;
+	const incompleteTextSize = " (incomplete)".length;
 	while (curTopic !== lastTopicString){
 		if (curTopic.toLowerCase().replaceAll("_"," ").includes(toSearch)) {
 			placeH2(curTopic);
 			topics[curTopic].forEach((subTopicInfo, i)=>{
 				if(i == 0) return; //first index is not about subtopic
-				summaryId = subTopicInfo[0];
+				summaryId = subTopicInfo[0].endsWith(" (incomplete)") ? subTopicInfo[0].slice(0, -incompleteTextSize) : subTopicInfo[0];
 				const anchorHref = `${curTopic}/${summaryId}`;
-				const anchorText = summaryId.replaceAll("_"," ");
+				const anchorText = subTopicInfo[0].replaceAll("_"," ");
 				const icon = (subTopicInfo.length > 1) ? getIcon(subTopicInfo[1]) : null;
 				addLink(anchorHref, anchorText, icon);
 			});
@@ -64,16 +65,16 @@ function setLinksStep2(){
 			let h2Placed = false;
 			topics[curTopic].forEach((subTopicInfo, i)=>{
 				if(i == 0) return; //first index is not about subtopic
-				summaryId = subTopicInfo[0];
+				summaryId = subTopicInfo[0].endsWith(" (incomplete)") ? subTopicInfo[0].slice(0, -incompleteTextSize) : subTopicInfo[0];
 
-				if (summaryId.toLowerCase().replaceAll("_"," ").includes(toSearch)) {
+				if (subTopicInfo[0].toLowerCase().replaceAll("_"," ").includes(toSearch)) {
 					if (!h2Placed) {
 						placeH2(curTopic);
 						h2Placed = true;
 					}
 
 					const anchorHref = `${curTopic}/${summaryId}`;
-					const anchorText = summaryId.replaceAll("_"," ");
+					const anchorText = subTopicInfo[0].replaceAll("_"," ");
 					const icon = (subTopicInfo.length > 1) ? getIcon(subTopicInfo[1]) : null;
 					addLink(anchorHref, anchorText, icon);
 				}

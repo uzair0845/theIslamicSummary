@@ -22,7 +22,7 @@ export default async function evalArticlePage(topic: string, subTopic: string): 
     })
     page = page.replace('%SUBTITLE%', `<h2>${h2Text}</h2>`);
   }
-  else page = page.replace('%SUBTITLE%', '<h2>&nbsp;</h2>');
+  else page = page.replace('%SUBTITLE%', '');
 
   var headerContent = "";
   CHAPTERS.forEach((chapterInfoArr, i)=>{

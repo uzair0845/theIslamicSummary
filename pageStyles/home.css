@@ -1,14 +1,20 @@
+:root {
+	--headerBg: #700000;
+  --headerBottomBorderColor: #400;
+  --headerBottomBorderSize: 5px;
+  --sideBorderColor: #200;
+}
+
 body{
 	margin:0px;
 	background-image: url('/pics/background.png');
-	background-color: #700000;
+	background-color: var(--headerBg);
 	background-position: left top;
   background-repeat: repeat;
   background-size: 100% auto;
-  background-origin: content-box;
-	border-style: solid;
+	border-style: none solid solid solid;
 	border-width: 4px;
-	border-color: #3A0000 #200 #700000 #200;
+	border-color: var(--headerBg) var(--sideBorderColor);
 	box-sizing: border-box;
 	position: relative;
 
@@ -16,10 +22,10 @@ body{
     width: 12px;
   }
   &::-webkit-scrollbar-track {
-  background: #220000;
+  background: var(--sideBorderColor);
   }
   &::-webkit-scrollbar-thumb {
-  background: #770000;
+  background: var(--headerBg);
   cursor: pointer;
   }
   &::-webkit-scrollbar-thumb:hover{
@@ -31,17 +37,17 @@ body{
     padding:20px 0px 20px 0px;
     width:100%;
     text-align:center;
-    font-family:"EB Garamond";
+    font-family:"Charm";
     font-weight: normal;
-    font-size:58px;
+    font-size: 46px;
     font-optical-sizing: auto;
     line-height: 62px;
     color:#F9C930;
     text-shadow: 1px 1px #EF8820;
     box-sizing: border-box;
     letter-spacing: 1px;
-    background-color:#661111;
-    border-bottom: solid 6px #4A0000;
+		background-color: var(--headerBg);
+    border-bottom: solid var(--headerBottomBorderSize) var(--headerBottomBorderColor);
   }
 
   main{
@@ -173,8 +179,8 @@ body{
     width: 100%;
     margin-top:50px;
     padding:15px 0px 8px 0px;
-    background-color:#700000;
-    border-top: solid 4px #440000;
+		background-color: var(--headerBg);
+    border-top: solid var(--headerBottomBorderSize) var(--headerBottomBorderColor);
 
     p{
       font-weight: bold;

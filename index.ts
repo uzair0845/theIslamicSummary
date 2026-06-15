@@ -26,13 +26,10 @@ function readFileAndSendRes(res: ServerResponse<IncomingMessage>, fileName: stri
 async function checkMakeSendPage(subDirectories: string[], res: ServerResponse<IncomingMessage>){
   if (subDirectories.length !== 3) return404(res); // 3 because ''/topic/subtopic 
   else {
-    let topic = subDirectories[1];
-    let subTopic = subDirectories[2];
-    if (
-      (topic in topics) &&
-      topics[topic].some((subTopicInfo)=> subTopic == subTopicInfo[0])
-    ) {
-      let articleContent = await evalArticlePage(topic, subTopic);
+    const topic = subDirectories[1];
+    const subTopic = subDirectories[2];
+    if ( (topic in topics) && topics[topic].some((subTopicInfo) => subTopicInfo[0].startsWith(subTopic)) ) {
+      const articleContent = await evalArticlePage(topic, subTopic);
       res.statusCode = 200;
       res.setHeader('Content-Type', 'text/html');
       res.end(articleContent);
@@ -42,8 +39,8 @@ async function checkMakeSendPage(subDirectories: string[], res: ServerResponse<I
 }
 
 const server = createServer(async (req, res) => {
-  let qIndex = req.url?.indexOf('?') || -1;
-  let location = qIndex > 0 ? req.url?.substring(0, qIndex) : req.url;
+  const qIndex = req.url?.indexOf('?') || -1;
+  const location = qIndex > 0 ? req.url?.substring(0, qIndex) : req.url;
   if (process.env.NODE_ENV === "development") console.log(req.url);
 
   //assist files

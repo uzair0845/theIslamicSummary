@@ -3,6 +3,7 @@ export const lastTopicString = "LAST_TOPIC";
 
 //topic: nexttopic, [summaryId1, extraInfo1], [summaryId2, extraInfo2], ...
 //SB means "Summarized book", and is only used when one book is used as the main source.
+//A means "Summarized Audio", and is only used when a podcast is the main source.
 export const topics: {[key: string]: (string | string[])[]} = {
 	tawheed: [
 		"aqeedah",
@@ -35,7 +36,8 @@ export const topics: {[key: string]: (string | string[])[]} = {
 	tafsir: [
 		"good_manners",
 		["tafsir_ibn_kathir (incomplete)","SB"],
-		["how_are_we_obligated_to_interpret_the_noble_qura (incomplete)","SB"],
+		["how_are_we_obligated_to_interpret_the_noble_quran (incomplete)","SB"],
+		["tafsir_from_various_sources"]
 	],
 	good_manners: [
 		lastTopicString,

@@ -7,6 +7,13 @@ I made this website long ago, but never published it online, which is why there 
 
 Versioning command: "npm version [new-version] --git-tag-version false"
 
+update 3.1:
+- Added a new subtopic.
+- When there is no subtitle, no h2 will be shown, instead of showing an empty h2.
+- Links with " (incomplete)" are now being processed properly.
+- Adding `0.html` under a named subchapter is now possible. Before it only worked with subchapters with names like "chpt[num]".
+- Made some UI in the home page and article page.
+
 update 2.3:
 - Font changes.
 - In topics.ts, changed the way topics are structured.

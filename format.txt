@@ -3,7 +3,7 @@ Chapter files should have names in one of these format:
 - [chapter number].html
 - [chapter name].html
 
-Subchapter files should just have names in one of these format:
+Subchapter files should have names in one of these format:
 - chpt[chapter number]/[subchapter number].html
 - chpt[chapter number]/[subchapter name].html
 - [chapter name]/[subchapter name].html
@@ -13,7 +13,7 @@ Chapter and subchapter names are defined in `info.ts`, and can have underscore. 
 
 Delimiters are not necessary for one Arabic sentence.
 
-<h2> element will only contain <span> if two or more lines, and there should be <br/> between the <span>'s.
+<h2> element will only contain <span> if two or more lines, and there should be a <br/> between the <span>'s.
 <h4> is for subsubtitle within subchapter.
 
 
@@ -67,3 +67,11 @@ Rules:
 - If the book provides a transaltion, then use the translation of the book only.
 - If the hadith is not found in Sunnah.com, then use whatever the book provided.
 - If quran transaltion is not provided, then use Muhsin Khan.
+
+
+info.ts in each topic should contain these exports:
+- TITLE
+- SUBTITLE (optional)
+- SOURCES (optional)
+- SOURCES_NAME (optional)
+- CHAPTERS

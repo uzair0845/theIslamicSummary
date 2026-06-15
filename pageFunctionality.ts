@@ -29,6 +29,7 @@ export function sendChapterContent(req: IncomingMessage, res: ServerResponse<Inc
         
         const possiblePath = [
           `./pageContents/${postData.loc}/chpt${postData.num}/0.html`,
+          `./pageContents/${postData.loc}/${postData.name}/0.html`,
           `./pageContents/${postData.loc}/${postData.name}.html`,
           `./pageContents/${postData.loc}/${postData.num}.html`
         ];
